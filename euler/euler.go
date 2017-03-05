@@ -66,10 +66,14 @@ func main() {
 
 /*
 
-This a problem on pentagonal numbers.  These numbers are like square numbers, except they represent the concept in pentagons.  The series starts 1,5,12,22...  and is given by the formula in pent().  As it is a quadratic I use function pentagonal(), which solves the square, to check whether a number is pentagonal or not.  The exercise asked you to find a pair of pentagonal numbers where the difference and the sum were also pentagonals.  The function isspecial() checks to see if the difference and the sum are pentagonal, in which case it returns true.
+Pentagonal numbers are like square numbers but with pentagons.  The exercise on project euler asked if you could find the pair of pentagonal numbers where the difference was also pentagonal, and so was the sum.
 
-At the end I use a loop within a loop to loop through pentagonal numbers, incrementing the difference between them using the outer loop.
+The function pent() generates the pentagonal number series, i.e. P2 is 5 (the second pentagonal number).
 
-I needed a function that would find the absolute value of an integer - hence the abs() function.  Solving the quadratic I had to convert everything to float64.  I wonder if there is a more elegant way to do this.
+Function pentagonal() checks whether the number is pentagonal or not.  I had to convert to float64 - not sure if this is very elegant, maybe their is a better way, but I needed the square root.
+
+Function isspecial() takes two numbers which it converts to the pentagonal series, then checks the difference and sum to see if they are pentagonal, if they are it returns true.
+
+the main function has a loop within a loop to generate numbers 1-2000 with differences of 1-2000 - sending these to isspecial, and only printing when it finds a match.
 
 */
