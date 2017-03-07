@@ -24,11 +24,7 @@ func pentagonal(p int) bool {
 
 	x := (-b + math.Sqrt(b*b-4*a*c)) / (2 * a)
 
-	if x == float64(int(x)) {
-		return true
-	} else {
-		return false
-	}
+	return x == float64(int(x))
 }
 
 func isspecial(x, y int) bool {
@@ -40,11 +36,7 @@ func isspecial(x, y int) bool {
 	difftest := pentagonal(diff)
 	sumtest := pentagonal(a + b)
 
-	if difftest && sumtest {
-		return true
-	} else {
-		return false
-	}
+	return difftest && sumtest
 }
 
 func main() {
@@ -52,12 +44,10 @@ func main() {
 
 	for i := 1; i <= n; i++ {
 		for j := 1; j <= n; j++ {
-			a := j
-			b := a + i
-			result := isspecial(a, b)
+			result := isspecial(j, i+j)
 			if result {
-				fmt.Printf("P%d(%d)\t P%d(%d)\n", a, b, pent(a), pent(b))
-				fmt.Printf("difference:%d\n",abs(pent(a)-pent(b)))
+				fmt.Printf("P%d(%d)\t P%d(%d)\n", j, pent(j), i, pent(i))
+				fmt.Printf("difference:%d\n",abs(pent(i)-pent(j)))
 			}
 		}
 	}
